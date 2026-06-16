@@ -1,0 +1,302 @@
+:root {
+  --bg: #f0f2f5;
+  --card-bg: #ffffff;
+  --display-bg: #1a1a2e;
+  --display-text: #e0e0ff;
+  --btn-number-bg: #ffffff;
+  --btn-number-hover: #e8eaf0;
+  --btn-operator-bg: #4a90d9;
+  --btn-operator-hover: #3a7bc8;
+  --btn-action-bg: #a8a8b3;
+  --btn-action-hover: #9898a3;
+  --btn-equals-bg: #ff6b35;
+  --btn-equals-hover: #e55a25;
+  --btn-text: #1a1a2e;
+  --btn-operator-text: #ffffff;
+  --btn-action-text: #1a1a2e;
+  --btn-equals-text: #ffffff;
+  --history-bg: #ffffff;
+  --history-text: #333;
+  --history-border: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --text-primary: #1a1a2e;
+  --text-secondary: #666;
+}
+
+body.dark {
+  --bg: #0d0d1a;
+  --card-bg: #1a1a2e;
+  --display-bg: #0a0a14;
+  --display-text: #e0e0ff;
+  --btn-number-bg: #2a2a3e;
+  --btn-number-hover: #3a3a52;
+  --btn-operator-bg: #1a5fa8;
+  --btn-operator-hover: #2470c0;
+  --btn-action-bg: #3a3a4e;
+  --btn-action-hover: #4a4a62;
+  --btn-equals-bg: #e05520;
+  --btn-equals-hover: #f06530;
+  --btn-text: #e0e0ff;
+  --btn-operator-text: #ffffff;
+  --btn-action-text: #e0e0ff;
+  --btn-equals-text: #ffffff;
+  --history-bg: #1a1a2e;
+  --history-text: #c0c0d8;
+  --history-border: #2a2a3e;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --text-primary: #e0e0ff;
+  --text-secondary: #9090a8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+button,
+.calculator-card,
+.display-panel,
+#history-section,
+#history-list li {
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.calculator-card,
+#history-section {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 18px 36px var(--shadow);
+}
+
+.calculator-card {
+  padding: 16px;
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+#theme-toggle {
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 6px;
+  line-height: 1;
+}
+
+#theme-toggle:hover {
+  background: rgba(127, 127, 127, 0.12);
+}
+
+.display-panel {
+  background: var(--display-bg);
+  border-radius: 16px 16px 12px 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  text-align: right;
+  container-type: inline-size;
+}
+
+#expression {
+  min-height: 1.2em;
+  margin-bottom: 8px;
+  color: rgba(224, 224, 255, 0.6);
+  font-size: 0.85em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#display {
+  min-height: 1.2em;
+  color: var(--display-text);
+  font-size: clamp(1.8rem, 14cqi, 2.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  word-break: break-all;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.button-grid button {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 18px 0;
+  transition: background-color 0.15s, transform 0.08s, color 0.3s;
+}
+
+.button-grid button:hover {
+  transform: translateY(-1px);
+}
+
+.button-grid button:active {
+  transform: scale(0.95);
+}
+
+.button-grid button:focus-visible,
+#theme-toggle:focus-visible,
+#clear-history:focus-visible {
+  outline: 2px solid var(--btn-operator-bg);
+  outline-offset: 2px;
+}
+
+.btn-number {
+  background: var(--btn-number-bg);
+  color: var(--btn-text);
+}
+
+.btn-number:hover {
+  background: var(--btn-number-hover);
+}
+
+.btn-operator {
+  background: var(--btn-operator-bg);
+  color: var(--btn-operator-text);
+}
+
+.btn-operator:hover {
+  background: var(--btn-operator-hover);
+}
+
+.btn-action {
+  background: var(--btn-action-bg);
+  color: var(--btn-action-text);
+}
+
+.btn-action:hover {
+  background: var(--btn-action-hover);
+}
+
+.btn-equals {
+  background: var(--btn-equals-bg);
+  color: var(--btn-equals-text);
+}
+
+.btn-equals:hover {
+  background: var(--btn-equals-hover);
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.key-hint {
+  position: absolute;
+  right: 6px;
+  bottom: 3px;
+  font-size: 0.55em;
+  opacity: 0.5;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+#history-section {
+  background: var(--history-bg);
+  padding: 14px 0 4px;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 10px;
+}
+
+.history-header h2 {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#clear-history {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--history-border);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 6px 10px;
+}
+
+#clear-history:hover {
+  border-color: #d64545;
+  color: #d64545;
+}
+
+#history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#history-list li {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--history-border);
+  color: var(--history-text);
+  font-size: 0.9em;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+#history-list li:last-child {
+  border-bottom: none;
+}
+
+#history-list .empty-state {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 379px) {
+  body {
+    padding: 16px 10px;
+  }
+
+  .calculator-card {
+    padding: 14px;
+  }
+
+  .button-grid button {
+    font-size: 0.95em;
+    padding: 15px 0;
+  }
+
+  #display {
+    font-size: clamp(1.6rem, 13cqi, 2rem);
+  }
+}

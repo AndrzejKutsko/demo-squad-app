@@ -6,14 +6,14 @@ How to decide who handles what.
 
 | Work Type | Route To | Examples |
 |-----------|----------|----------|
-| {domain 1} | {Name} | {example tasks} |
-| {domain 2} | {Name} | {example tasks} |
-| {domain 3} | {Name} | {example tasks} |
-| Code review | {Name} | Review PRs, check quality, suggest improvements |
-| Testing | {Name} | Write tests, find edge cases, verify fixes |
-| Scope & priorities | {Name} | What to build next, trade-offs, decisions |
-| Session logging | Scribe | Automatic — never needs routing |
-| RAI review | Rai | Content safety, bias checks, credential detection, ethical review |
+| Architecture, scope, decisions | Morpheus | File structure, feature trade-offs, API design |
+| HTML structure, CSS, theming | Trinity | Layout, dark/light mode, button styles, animations |
+| JavaScript logic, keyboard, storage | Neo | Calculation engine, keyboard events, localStorage, history log |
+| Code review | Morpheus | Review PRs, quality gates, enforce conventions |
+| Testing & edge cases | Tank | Edge cases, keyboard shortcuts, decimal precision, overflow |
+| Documentation, README, guides | Oracle | README.md, usage docs, Codespace setup, keyboard shortcuts |
+| Architecture diagrams, Mermaid | Mouse | Component diagrams, state machines, flow charts |
+| RAI review | Rai | Content safety, credential detection |
 
 ## Issue Routing
 
