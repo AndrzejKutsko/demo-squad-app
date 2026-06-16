@@ -1,104 +1,154 @@
-# demo-squad-app calculator
+# Demo Squad App Calculator
 
-A browser-based calculator built with vanilla HTML, CSS, and JavaScript.
+A React 18 calculator rebuilt with Vite, CSS Modules, keyboard controls, saved history, and theme persistence.
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-94%20tests-6E9F18?logo=vitest&logoColor=white)
 
 ## Screenshot
 
 > **Screenshot placeholder**  
-> Alt text: Browser-based calculator with a theme toggle in the top-right corner, an expression line above a large result display, a four-column keypad with keyboard shortcut hints on each button, and a history panel below the calculator showing recent calculations.
+> Alt text: Calculator app with a theme toggle in the header, expression and result display, a four-column keypad with keyboard hints, and a history panel below the calculator.
 
 ## Features
 
-- Basic arithmetic with `+`, `−`, `×`, and `÷`
-- Chained operations with intermediate result updates before `=`
-- `AC` to reset the calculator state
-- Backspace to delete the last digit
-- `+/−` to toggle the current value sign
-- Calculation history shown below the calculator
-- Newest history entries first, capped at 50 items
-- History persistence with `localStorage`
+- Basic arithmetic: `+`, `−`, `×`, `÷`
+- Chained operations with intermediate result display
+- `AC` resets the full calculator state
+- Backspace deletes the last digit
+- `+/−` toggles the current value sign
+- History log stores up to 50 entries
+- Newest history entries appear first
+- History is persisted in `localStorage` with `calc_history`
 - Clear history button
 - Dark and light theme toggle
-- Theme persistence with `localStorage`
-- Keyboard support for number entry and actions
-- Keyboard shortcuts shown on calculator buttons
+- Theme is persisted in `localStorage` with `calc_theme`
+- Full keyboard support
+- Keyboard shortcuts are shown on buttons
 
 ## Getting Started
 
-Open the calculator in a browser. No build step is required.
+Clone the repo, install dependencies, and start Vite.
 
-### Open locally
+### Prerequisites
 
-Open `index.html` in any modern browser.
+- Node.js 18+
+- npm
 
-No setup is required:
+### Install and run locally
 
-- No `npm install`
-- No build step
-- No dependencies
-- No local server
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
 
 ### Run in GitHub Codespaces
 
-Use this option if you want to run the project in a browser from a cloud dev environment.
-
-1. Open the repository on GitHub.
-2. Click **Code**.
-3. Open the **Codespaces** tab.
-4. Click **Create codespace on main**.
-5. Wait for the Codespace to load.
-6. Open a terminal in Codespaces.
-7. Start a simple local server:
+1. Click **Code** → **Codespaces** → **Create codespace on main**.
+2. In the terminal, run:
 
    ```bash
-   python3 -m http.server 8080
+   npm install
+   npm run dev
    ```
 
-   If the VS Code Live Server extension is available, you can use that instead.
+3. When the port `5173` notification appears, click **Open in Browser**.
+4. Or open port `5173` from the **Ports** tab.
 
-8. When port `8080` is forwarded, click **Open in Browser**.
-9. If the notification does not appear, open the **Ports** tab and open port `8080` manually.
-10. The calculator will open in the browser.
+## Dev Commands
 
-There is still no extra setup:
-
-- No `npm install`
-- No build step
-- No dependencies
+| Command | What it does |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the Vite dev server on `http://localhost:5173` |
+| `npm test` | Run the full Vitest suite |
+| `npm run test:watch` | Run Vitest in watch mode |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
 
 ## Keyboard Shortcuts
 
 | Key | Action |
-|-----|--------|
+| --- | --- |
 | `0`–`9` | Digit input |
 | `+` | Addition |
 | `-` | Subtraction |
 | `*` | Multiplication |
 | `/` | Division |
 | `.` | Decimal point |
-| `Enter` | Equals and evaluate |
+| `Enter` | Equals |
 | `Backspace` | Delete last digit |
-| `Escape` | `AC` / all clear |
+| `Escape` | AC — All Clear |
 
 ## Project Structure
 
 ```text
 demo-squad-app/
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+├── index.html              # Vite entry point
+├── vite.config.js          # Vite + Vitest config
+├── package.json            # Scripts and dependencies
+├── src/
+│   ├── main.jsx            # React root
+│   ├── App.jsx             # Root component, wires hooks + layout
+│   ├── App.module.css      # App shell layout styles
+│   ├── index.css           # Global CSS custom properties and theme tokens
+│   ├── setupTests.js       # Vitest setup with jest-dom
+│   ├── hooks/
+│   │   ├── useCalculator.js  # useReducer state machine for calculator logic
+│   │   ├── useHistory.js     # History state + localStorage sync
+│   │   └── useTheme.js       # Theme state + localStorage sync
+│   ├── components/
+│   │   ├── Display.jsx         # Expression + current value display
+│   │   ├── Button.jsx          # Single button with keyboard hint
+│   │   ├── ButtonGrid.jsx      # All calculator buttons + keyboard handler
+│   │   ├── HistoryLog.jsx      # Scrollable history + clear action
+│   │   └── ThemeToggle.jsx     # Dark/light toggle button
+│   └── __tests__/
+│       ├── useCalculator.test.js
+│       ├── useHistory.test.js
+│       ├── useTheme.test.js
+│       ├── Display.test.jsx
+│       ├── Button.test.jsx
+│       ├── ButtonGrid.test.jsx
+│       ├── HistoryLog.test.jsx
+│       ├── ThemeToggle.test.jsx
+│       └── App.test.jsx
+└── dist/                   # Production build output
 ```
 
-- `index.html` — semantic calculator markup and history section
-- `style.css` — layout, component styles, custom properties, and dark/light theme
-- `script.js` — calculator state, chained-operation logic, keyboard handling, history, and `localStorage`
-- `README.md` — project overview and usage instructions
+## Testing
 
-## How It Works
+The app has **94 tests across 9 files**.
 
-The calculator uses a small JavaScript state model to track the current value, previous value, selected operator, and input flow between operations. It runs entirely in the browser with no frameworks or build tooling. History and theme preference are saved with `localStorage`, so they persist across page reloads.
+- Runner: **Vitest**
+- UI testing: **React Testing Library**
+- Coverage focus: calculator logic, history persistence, theme persistence, component rendering, keyboard input, and full app integration
 
-## Team
+Run the suite:
 
-This project was built by the `demo-squad-app` AI team.
+```bash
+npm test
+```
+
+Run watch mode:
+
+```bash
+npm run test:watch
+```
+
+## Tech Stack
+
+| Layer | Tooling |
+| --- | --- |
+| UI | React 18 |
+| Build tool | Vite 6 |
+| Styling | CSS Modules + global CSS custom properties |
+| Testing | Vitest + React Testing Library |
+| Persistence | Browser `localStorage` |
+
+## Built By
+
+Built by the **demo-squad** AI team in the **Matrix universe**.
