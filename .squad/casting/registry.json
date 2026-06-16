@@ -1,0 +1,46 @@
+{
+    "agents":  {
+                   "lead":  {
+                                "created_at":  "2026-06-16T11:43:47Z",
+                                "status":  "active",
+                                "legacy_named":  false,
+                                "persistent_name":  "Morpheus",
+                                "universe":  "The Matrix"
+                            },
+                   "js-dev":  {
+                                  "created_at":  "2026-06-16T11:43:47Z",
+                                  "status":  "active",
+                                  "legacy_named":  false,
+                                  "persistent_name":  "Neo",
+                                  "universe":  "The Matrix"
+                              },
+                   "tester":  {
+                                  "created_at":  "2026-06-16T11:43:47Z",
+                                  "status":  "active",
+                                  "legacy_named":  false,
+                                  "persistent_name":  "Tank",
+                                  "universe":  "The Matrix"
+                              },
+                   "frontend-dev":  {
+                                        "created_at":  "2026-06-16T11:43:47Z",
+                                        "status":  "active",
+                                        "legacy_named":  false,
+                                        "persistent_name":  "Trinity",
+                                        "universe":  "The Matrix"
+                                    },
+                   "technical-writer":  {
+                                            "persistent_name":  "Oracle",
+                                            "universe":  "The Matrix",
+                                            "created_at":  "2026-06-16T12:06:12Z",
+                                            "legacy_named":  false,
+                                            "status":  "active"
+                                        },
+                   "diagram-artist":  {
+                                          "persistent_name":  "Mouse",
+                                          "universe":  "The Matrix",
+                                          "created_at":  "2026-06-16T12:06:12Z",
+                                          "legacy_named":  false,
+                                          "status":  "active"
+                                      }
+               }
+}
