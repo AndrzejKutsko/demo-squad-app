@@ -1,0 +1,72 @@
+/* Light theme (default) */
+:root {
+  --bg: #f0f2f5;
+  --card-bg: #ffffff;
+  --display-bg: #1a1a2e;
+  --display-text: #e0e0ff;
+  --display-expr: rgba(224, 224, 255, 0.6);
+  --btn-number-bg: #ffffff;
+  --btn-number-hover: #e8eaf0;
+  --btn-operator-bg: #4a90d9;
+  --btn-operator-hover: #3a7bc8;
+  --btn-action-bg: #a8a8b3;
+  --btn-action-hover: #9898a3;
+  --btn-equals-bg: #ff6b35;
+  --btn-equals-hover: #e55a25;
+  --btn-text: #1a1a2e;
+  --btn-operator-text: #ffffff;
+  --btn-action-text: #1a1a2e;
+  --btn-equals-text: #ffffff;
+  --history-bg: #ffffff;
+  --history-text: #333;
+  --history-border: #e0e0e0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --text-primary: #1a1a2e;
+  --text-secondary: #666;
+}
+
+/* Dark theme */
+body.dark {
+  --bg: #0d0d1a;
+  --card-bg: #1a1a2e;
+  --display-bg: #0a0a14;
+  --display-text: #e0e0ff;
+  --display-expr: rgba(224, 224, 255, 0.6);
+  --btn-number-bg: #2a2a3e;
+  --btn-number-hover: #3a3a52;
+  --btn-operator-bg: #1a5fa8;
+  --btn-operator-hover: #2470c0;
+  --btn-action-bg: #3a3a4e;
+  --btn-action-hover: #4a4a62;
+  --btn-equals-bg: #e05520;
+  --btn-equals-hover: #f06530;
+  --btn-text: #e0e0ff;
+  --btn-operator-text: #ffffff;
+  --btn-action-text: #e0e0ff;
+  --btn-equals-text: #ffffff;
+  --history-bg: #1a1a2e;
+  --history-text: #c0c0d8;
+  --history-border: #2a2a3e;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --text-primary: #e0e0ff;
+  --text-secondary: #9090a8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}

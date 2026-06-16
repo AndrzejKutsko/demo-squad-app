@@ -1,0 +1,28 @@
+.display {
+  background: var(--display-bg);
+  border-radius: 16px 16px 12px 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  text-align: right;
+}
+
+.expression {
+  min-height: 1.2em;
+  margin-bottom: 8px;
+  color: var(--display-expr);
+  font-size: 0.85em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.current {
+  min-height: 1.2em;
+  color: var(--display-text);
+  font-size: clamp(1.8rem, 10vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  word-break: break-all;
+  transition: color 0.3s;
+}
