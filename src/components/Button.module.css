@@ -1,0 +1,73 @@
+.btn {
+  position: relative;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 500;
+  padding: 18px 0;
+  transition: background-color 0.15s, transform 0.08s, color 0.3s;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--btn-operator-bg);
+  outline-offset: 2px;
+}
+
+.number {
+  background: var(--btn-number-bg);
+  color: var(--btn-text);
+}
+
+.number:hover {
+  background: var(--btn-number-hover);
+}
+
+.operator {
+  background: var(--btn-operator-bg);
+  color: var(--btn-operator-text);
+}
+
+.operator:hover {
+  background: var(--btn-operator-hover);
+}
+
+.action {
+  background: var(--btn-action-bg);
+  color: var(--btn-action-text);
+}
+
+.action:hover {
+  background: var(--btn-action-hover);
+}
+
+.equals {
+  background: var(--btn-equals-bg);
+  color: var(--btn-equals-text);
+}
+
+.equals:hover {
+  background: var(--btn-equals-hover);
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+.keyHint {
+  position: absolute;
+  right: 6px;
+  bottom: 3px;
+  font-size: 0.55em;
+  opacity: 0.5;
+  font-family: Consolas, 'Courier New', monospace;
+}
